@@ -5,6 +5,12 @@ declare module "*.png" {
   export default src;
 }
 
+declare global {
+  interface ImportMetaEnv {
+    readonly VITE_API_BASE_URL?: string;
+  }
+}
+
 declare module "*.svg" {
   const src: string;
   export default src;

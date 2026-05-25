@@ -2,7 +2,9 @@ import { GameMetadata } from "../types";
 import { GAMES_DATA } from "../data";
 
 const STORAGE_KEY = "vortex_custom_games";
-const API_BASE = typeof window !== "undefined" ? window.location.origin : "";
+const API_BASE = typeof window !== "undefined"
+  ? import.meta.env.VITE_API_BASE_URL || window.location.origin
+  : "";
 
 export async function getGamesList(): Promise<GameMetadata[]> {
   try {

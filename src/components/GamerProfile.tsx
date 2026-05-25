@@ -3,20 +3,24 @@ import { motion, AnimatePresence } from "motion/react";
 import { playClickSound, playHoverSound, playSuccessSound } from "../utils/audio";
 import { GameMetadata } from "../types";
 import { saveCustomGame } from "../utils/gamesStorage";
-import { 
-  User, 
-  Terminal, 
-  Settings, 
-  Plus, 
-  Trash2, 
-  Globe, 
-  Gamepad2, 
-  CheckCircle, 
-  Sparkles, 
-  Edit3, 
-  Sliders, 
+import {
+  User,
+  Terminal,
+  Settings,
+  Plus,
+  Trash2,
+  Globe,
+  Gamepad2,
+  CheckCircle,
+  Sparkles,
+  Edit3,
+  Sliders,
   Layers 
 } from "lucide-react";
+
+const API_BASE = typeof window !== "undefined"
+  ? import.meta.env.VITE_API_BASE_URL || window.location.origin
+  : "";
 
 // Initial list of beautiful holographic avatar presets
 interface GamerProfileProps {
@@ -116,7 +120,7 @@ export function GamerProfile({ currentUser: currentUserProp, onUserChange }: Gam
 
     const fetchUsers = async () => {
       try {
-        const response = await fetch("/api/users");
+        const response = await fetch(`${API_BASE}/api/users`);
         if (!response.ok) return;
         const data = await response.json();
         setAdminUsers(data.users || []);
@@ -167,7 +171,7 @@ export function GamerProfile({ currentUser: currentUserProp, onUserChange }: Gam
     }
 
     try {
-      const response = await fetch("/api/upload", {
+      const response = await fetch(`${API_BASE}/api/upload`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ imageUrl: avatarUrl }),
@@ -294,7 +298,7 @@ export function GamerProfile({ currentUser: currentUserProp, onUserChange }: Gam
       const avatarSource = customPicInput.trim() || selectedAvatar || AVATAR_PRESETS[0];
       cloudinaryAvatar = await uploadAvatar(avatarSource);
 
-      const response = await fetch("/api/auth/access", {
+      const response = await fetch(`${API_BASE}/api/auth/access`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
