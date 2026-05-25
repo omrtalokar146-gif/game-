@@ -1,0 +1,6 @@
+{
+  "name": "Gaming Studio Showcase",
+  "description": "An immersive, highly animated gaming studio showcasing gamin zone and interactive showcase featuring game simulations, responsive motion layouts, custom canvas effects, and high-fidelity transitions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

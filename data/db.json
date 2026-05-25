@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "id": "1779712893782",
+      "username": "omy13456",
+      "password": "$2a$10$UZbQ.xYucX3s8GJJ0PeIMeSwUgY42OeQDH4usJq.TJPAkqATbsgXq",
+      "avatar": "https://res.cloudinary.com/dgnmyowoi/image/upload/v1779712894/vortex_profiles/photo-1618005182384-a83a8bd57fbe_razdxg.jpg"
+    },
+    {
+      "id": "1779713296672",
+      "username": "ireani",
+      "password": "$2a$10$BuXxsi/NkWAjWTnbTR/QsOskyBkxC3qc3dzp6k.X65j463/PyMxe2",
+      "avatar": "https://res.cloudinary.com/dgnmyowoi/image/upload/v1779713297/vortex_profiles/photo-1618005182384-a83a8bd57fbe_mzyomu.jpg"
+    }
+  ],
+  "games": []
+}
