@@ -361,7 +361,7 @@ export function GameShowcase() {
 
 
   return (
-    <section className="relative w-full py-20 px-4 md:px-8 max-w-7xl mx-auto" id="gaming-zone-section">
+    <section className="relative w-full py-12 md:py-20 px-4 md:px-8 max-w-7xl mx-auto" id="gaming-zone-section">
       <div className="absolute top-0 right-1/4 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       {/* Header title */}
@@ -370,17 +370,17 @@ export function GameShowcase() {
           <span className="font-mono text-xs text-cyan-400 font-bold uppercase tracking-widest block mb-1">
             GAMIN ZONE
           </span>
-          <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight italic text-white uppercase">
+          <h2 className="text-3xl md:text-5xl font-display font-black tracking-tight italic text-white uppercase">
             EXPLORE THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-rose-500">GAMIN ZONE</span>
           </h2>
         </div>
-        <p className="text-neutral-400 font-sans text-sm max-w-sm">
+        <p className="text-neutral-400 font-sans text-sm max-w-full md:max-w-sm">
           Click on any game package below to reveal dynamic specifications and launch instantly inside the simulator cockpit.
         </p>
       </div>
 
       {/* Interactive horizontal selection container */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
         {gamesList.map((game) => {
           const isActive = selectedGame.id === game.id;
           return (
@@ -394,13 +394,13 @@ export function GameShowcase() {
               onMouseEnter={triggerHover}
               whileHover={{ y: -6, scale: 1.01 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className={`relative cursor-pointer rounded-2xl p-5 overflow-hidden border backdrop-blur-md transition-all duration-300 ${
+              className={`group relative cursor-pointer rounded-2xl p-4 sm:p-5 overflow-hidden border backdrop-blur-md transition-all duration-300 ${
                 isActive 
                   ? "bg-white/10 border-white/25 shadow-[0_8px_32px_rgba(34,211,238,0.25)]" 
                   : "bg-white/5 border-white/10 hover:border-white/20 hover:bg-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.18)]"
               }`}
             >
-              <div className="aspect-[4/3] w-full rounded-xl overflow-hidden mb-4 relative flex items-center justify-center">
+              <div className="aspect-video sm:aspect-[4/3] w-full rounded-xl overflow-hidden mb-3 sm:mb-4 relative flex items-center justify-center">
                 {game.coverImage && (game.coverImage.startsWith("/") || game.coverImage.startsWith("http")) ? (
                   <img
                     src={game.coverImage}
@@ -430,8 +430,8 @@ export function GameShowcase() {
               </div>
 
               <div className="flex items-center justify-between mb-1.5">
-                <h3 className="font-display font-black text-lg text-white tracking-tight italic uppercase">
-                  {game.title}
+                <h3 className="font-display font-black text-base md:text-lg text-white tracking-tight italic uppercase">
+                    {game.title}
                 </h3>
                 <span className={`text-[10px] font-mono leading-none flex items-center gap-1.5 ${
                   game.serverStatus === "ONLINE" ? "text-emerald-400" : "text-sky-400"
@@ -442,8 +442,8 @@ export function GameShowcase() {
                   {game.serverStatus}
                 </span>
               </div>
-              <p className="text-xs text-[#a1a1aa] font-sans line-clamp-2 leading-relaxed mb-3">
-                {game.tagline}
+                <p className="text-sm md:text-xs text-[#a1a1aa] font-sans line-clamp-2 leading-relaxed mb-3">
+                  {game.tagline}
               </p>
 
               <div className="flex items-center justify-between border-t border-white/5 pt-3">
@@ -468,7 +468,7 @@ export function GameShowcase() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.4 }}
-          className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 border border-white/10 rounded-3xl p-6 md:p-10 bg-white/5 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.37)]"
+          className="relative grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 border border-white/10 rounded-3xl p-4 md:p-10 bg-white/5 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.37)]"
         >
           {/* LEFT PANEL: Game Details Showcase */}
           <div className="lg:col-span-5 flex flex-col justify-between">
@@ -481,7 +481,7 @@ export function GameShowcase() {
                 ))}
               </div>
 
-              <h3 className="text-3xl md:text-4xl font-display font-black text-white leading-none mb-3 italic uppercase">
+              <h3 className="text-2xl md:text-4xl font-display font-black text-white leading-none mb-3 italic uppercase">
                 {selectedGame.title}
               </h3>
               <p className="text-cyan-400 font-mono text-xs uppercase tracking-wider mb-5">
@@ -526,10 +526,10 @@ export function GameShowcase() {
           </div>
 
           {/* RIGHT PANEL: Embedded Interactive Game Emulators */}
-          <div className="lg:col-span-7 flex flex-col justify-center items-center relative min-h-[380px] bg-[#020205]/60 border border-white/10 rounded-2xl overflow-hidden p-6 shadow-inner backdrop-blur-xs">
+          <div className="lg:col-span-7 flex flex-col justify-center items-center relative min-h-[220px] md:min-h-[380px] bg-[#020205]/60 border border-white/10 rounded-2xl overflow-hidden p-4 md:p-6 shadow-inner backdrop-blur-xs">
             
             {/* If demo not active, render high-fidelity static visual mock */}
-            <div className="text-center flex flex-col items-center max-w-sm">
+            <div className="text-center flex flex-col items-center max-w-xs sm:max-w-sm">
               <div className="h-14 w-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-4 text-cyan-400 animate-pulse shadow-md backdrop-blur-md">
                 🕹️
               </div>
